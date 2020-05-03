@@ -1,6 +1,6 @@
 # Disaster Response Application
 
-The priject for Udacity's Dtata Scientist Nanodegree Program. 
+The project for Udacity's Dtata Scientist Nanodegree Program. 
 
 # Overview
 This project contains data sets with real messages that were sent during disaster events. The goal of this project is to create a machine learning pipeline to categorize these events so that you can send the messages to an appropriate disaster relief agency.
