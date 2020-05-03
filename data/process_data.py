@@ -8,10 +8,10 @@ The script takes the file paths of the two datasets and database, cleans the dat
 Args:
 messages.csv
 categories.csv 
-InsertDatabaseName.db
+DisasterResponse.db
 
 Run:
-python3 process_data.py messages.csv categories.csv InsertDatabaseName.db
+python3 process_data.py messages.csv categories.csv DisasterResponse.db
 """
 
 # import libraries
@@ -109,7 +109,7 @@ def save_data(df, database_filename):
     database_filename -> destination path to sql database ('InsertDatabaseName.db')
     """
     engine = create_engine('sqlite:///'+database_filename)
-    df.to_sql('InsertTableName', engine, index=False)
+    df.to_sql('DisasterResponse', engine, index=False)
 
 
 def main():
