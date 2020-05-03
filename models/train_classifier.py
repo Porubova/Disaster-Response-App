@@ -7,10 +7,10 @@ The script loads sql database, splits into training and validation sets. Creates
 
 Args:
 model.pkl
-InsertDatabaseName.db
+DisasterResponse.db
 
 Run:
-python3 train_classifier.py ../data/InsertDatabaseName.db model.pkl
+python3 train_classifier.py ../data/DisasterResponse.db model.pkl
 """
 
 # download necessary NLTK data
