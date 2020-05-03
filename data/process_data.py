@@ -31,14 +31,20 @@ def load_data(messages_filepath, categories_filepath):
 
     """
     # load messages and categories datasets
+<<<<<<< HEAD
     messages = pd.read_csv(messages_filepath)
     categories = pd.read_csv(categories_filepath)
+=======
+    messages = pd.read_csv("messages.csv")
+    categories = pd.read_csv("categories.csv")
+>>>>>>> f679a88c72125a89f5de8b2312fd57e9bd27c390
 
     # merge datasets
     df =  pd.merge(messages, categories, on='id')
 
     return df 
 
+<<<<<<< HEAD
 def change_value(row):
     """Function takes a row value from column and converts values to binary
 
@@ -54,6 +60,8 @@ def change_value(row):
     else:
         return 0
 
+=======
+>>>>>>> f679a88c72125a89f5de8b2312fd57e9bd27c390
 def clean_data(df):
     """Function splits the categories column into separate, clearly named 
     columns, converts values to binary, and drops duplicates.
@@ -93,10 +101,13 @@ def clean_data(df):
 
     # drop duplicates
     df.drop_duplicates(keep=False,inplace=True)
+<<<<<<< HEAD
     
     # change values in realted_category colum to 1 and 0
     df.related_category=df.related_category.apply(change_value)
 
+=======
+>>>>>>> f679a88c72125a89f5de8b2312fd57e9bd27c390
     return df
 
 
@@ -109,6 +120,7 @@ def save_data(df, database_filename):
     database_filename -> destination path to sql database ('InsertDatabaseName.db')
     """
     engine = create_engine('sqlite:///'+database_filename)
+<<<<<<< HEAD
     df.to_sql('InsertTableName', engine, index=False)
 
 
@@ -121,6 +133,12 @@ def main():
     None
     """ 
 
+=======
+    df.to_sql(database_filename, engine, index=False)
+
+
+def main():
+>>>>>>> f679a88c72125a89f5de8b2312fd57e9bd27c390
     if len(sys.argv) == 4:
 
         messages_filepath, categories_filepath, database_filepath = sys.argv[1:]
@@ -147,4 +165,8 @@ def main():
 
 
 if __name__ == '__main__':
+<<<<<<< HEAD
     main()
+=======
+    main()
+>>>>>>> f679a88c72125a89f5de8b2312fd57e9bd27c390
