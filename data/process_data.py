@@ -8,10 +8,10 @@ The script takes the file paths of the two datasets and database, cleans the dat
 Args:
 messages.csv
 categories.csv 
-DisasterResponse.db
+InsertDatabaseName.db
 
 Run:
-python3 process_data.py messages.csv categories.csv DisasterResponse.db
+python3 process_data.py messages.csv categories.csv InsertDatabaseName.db
 """
 
 # import libraries
@@ -38,7 +38,6 @@ def load_data(messages_filepath, categories_filepath):
     df =  pd.merge(messages, categories, on='id')
 
     return df 
-
 
 def change_value(row):
     """Function takes a row value from column and converts values to binary
@@ -94,10 +93,11 @@ def clean_data(df):
 
     # drop duplicates
     df.drop_duplicates(keep=False,inplace=True)
-
     
     # change values in realted_category colum to 1 and 0
     df.related_category=df.related_category.apply(change_value)
+
+    return df
 
 
 def save_data(df, database_filename):
@@ -109,7 +109,7 @@ def save_data(df, database_filename):
     database_filename -> destination path to sql database ('InsertDatabaseName.db')
     """
     engine = create_engine('sqlite:///'+database_filename)
-    df.to_sql('DisasterResponse', engine, index=False)
+    df.to_sql('InsertTableName', engine, index=False)
 
 
 def main():
@@ -120,7 +120,7 @@ def main():
     Returns:
     None
     """ 
-    
+
     if len(sys.argv) == 4:
 
         messages_filepath, categories_filepath, database_filepath = sys.argv[1:]
@@ -148,4 +148,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
