@@ -55,7 +55,7 @@ def load_data(database_filepath):
     category_names -> labekls for classification
     """ 
     engine = create_engine('sqlite:///'+database_filepath)
-    df = pd.read_sql("SELECT * FROM InsertTableName", engine)
+    df = pd.read_sql("SELECT * FROM DisasterResponse", engine)
     X = df['message']
     y = df[df.columns[4:]]
     
